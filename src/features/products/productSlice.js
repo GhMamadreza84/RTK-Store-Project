@@ -11,3 +11,9 @@ const initialState = {
 const fetchProducts = createAsyncThunk("product/fetchProducts", () => {
   return api.get("/products");
 });
+
+const productSlice = createSlice({
+  name: "product",
+  initialState,
+  extraReducers: (builder) => {},
+});
