@@ -24,6 +24,11 @@ const ProductsPage = () => {
   const [query, setQuery] = useState({});
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
   useEffect(() => {
     setDisplayed(products);
     setQuery(getInitialQuery(searchParams));
