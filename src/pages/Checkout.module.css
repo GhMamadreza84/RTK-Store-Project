@@ -1,0 +1,24 @@
+.empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.empty h1{
+  color: #fe5d42;
+}
+.empty img{
+  width: 300px;
+  height: 350px;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  min-height: 1000px;
+}
+.products{
+  width: 100%;
+}
+
