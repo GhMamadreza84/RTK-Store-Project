@@ -9,5 +9,5 @@ const initialState = {
 };
 
 const fetchProducts = createAsyncThunk("product/fetchProducts", () => {
-  return api;
+  return api.get("/products");
 });
