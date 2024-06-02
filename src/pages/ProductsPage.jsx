@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
   // const products = useProducts();
   const dispatch = useDispatch();
-  const {products} = useSelector((store) => store.product);
+  const {products} = useSelector((store) => store.products);
   console.log(products)
   // const products = [];
 
