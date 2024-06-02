@@ -16,11 +16,8 @@ import Sidebar from "../components/Sidebar";
 import { fetchProducts } from "../features/products/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
-  // const products = useProducts();
   const dispatch = useDispatch();
   const {products} = useSelector((store) => store.products);
-  console.log(products)
-  // const products = [];
 
   const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
