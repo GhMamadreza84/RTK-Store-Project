@@ -17,14 +17,16 @@ import { fetchProducts } from "../features/products/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
   // const products = useProducts();
-  const products = [];
+  const dispatch = useDispatch();
+  const {products} = useSelector((store) => store.product);
+  console.log(products)
+  // const products = [];
 
   const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState({});
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
