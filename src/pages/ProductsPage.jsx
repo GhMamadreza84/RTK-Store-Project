@@ -17,7 +17,7 @@ import { fetchProducts } from "../features/products/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
   const dispatch = useDispatch();
-  const {products} = useSelector((store) => store.products);
+  const {products,loading} = useSelector((store) => store.products);
 
   const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
@@ -46,7 +46,7 @@ const ProductsPage = () => {
       <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
       <div className={styles.container}>
         <div className={styles.products}>
-          {!displayed.length && <Loader />}
+          {loading && <Loader />}
           {displayed.map((p) => (
             <Card key={p.id} data={p} />
           ))}
