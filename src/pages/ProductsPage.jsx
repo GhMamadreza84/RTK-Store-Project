@@ -13,6 +13,8 @@ import Loader from "../components/Loader";
 import styles from "./ProductsPage.module.css";
 import SearchBox from "../components/SearchBox";
 import Sidebar from "../components/Sidebar";
+import { fetchProducts } from "../features/products/productSlice";
+import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
   // const products = useProducts();
   const products = [];
