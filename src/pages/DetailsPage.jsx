@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 // import { useProductDetils } from "../context/ProductContext";
+import { useSelector } from "react-redux";
 
 import { SiOpenproject } from "react-icons/si";
 import { IoMdPricetag } from "react-icons/io";
@@ -10,7 +11,7 @@ import styles from "./DetailsPage.module.css"
 
 const DetailsPage = () => {
   const { id } = useParams();
-  const productDetails = ;
+  const productDetails = useSelector(store=>store.product);
   if (!productDetails) return <Loader />;
   const { image, title, description, category, price } = productDetails;
   return (
