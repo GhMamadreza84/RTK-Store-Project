@@ -38,7 +38,7 @@ const cartSlice = createSlice({
     },
     decrease: (state, action) => {
       const decreaseIndex = state.selectedItems.findIndex(
-        (i) => i.id !== action.payload.id
+        (i) => i.id === action.payload.id
       );
       state.selectedItems[decreaseIndex].quantity--;
       state.total = sumPrice(state.selectedItems);
