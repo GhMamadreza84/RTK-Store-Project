@@ -44,5 +44,11 @@ const cartSlice = createSlice({
       state.total = sumPrice(state.selectedItems);
       state.itemsCounter = sumQuantity(state.selectedItems);
     },
+    checkout: (state) => {
+      state.selectedItems = [];
+      state.checkout = true;
+      state.itemsCounter = 0;
+      state.total = 0;
+    },
   },
 });
