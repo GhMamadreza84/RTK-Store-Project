@@ -15,7 +15,7 @@ const DetailsPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams();
   const productDetails = useSelector((store) =>
-    store.products.products.find((i) => i.id === id)
+    store.product.products.find((i) => i.id === +id)
   );
   useEffect(() => {
     dispatch(fetchProducts());

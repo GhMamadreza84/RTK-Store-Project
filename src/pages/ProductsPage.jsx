@@ -17,7 +17,7 @@ import { fetchProducts } from "../features/products/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 const ProductsPage = () => {
   const dispatch = useDispatch();
-  const {products,loading} = useSelector((store) => store.products);
+  const {products,loading} = useSelector((store) => store.product);
 
   const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
