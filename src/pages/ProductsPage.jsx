@@ -31,7 +31,6 @@ const ProductsPage = () => {
     setDisplayed(products)
     setQuery(getInitialQuery(searchParams));
   }, [products]);
-  console.log(displayed)
 
   useEffect(() => {
     setSearchParams(query);

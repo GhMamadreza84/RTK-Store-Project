@@ -14,7 +14,7 @@ import {
 } from "../features/cart/cartSlice";
 const Card = ({ data }) => {
   const { id, title, image, price } = data;
-
+  console.log(data)
   const dispatch = useDispatch();
   const state = useSelector((store) => store.cart);
   const quantity = productQuantity(state, id);
