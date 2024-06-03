@@ -36,5 +36,13 @@ const cartSlice = createSlice({
       state.total = sumPrice(state.selectedItems);
       state.itemsCounter = sumQuantity(state.selectedItems);
     },
+    decrease: (state, action) => {
+      const decreaseIndex = state.selectedItems.findIndex(
+        (i) => i.id !== action.payload.id
+      );
+      state.selectedItems[decreaseIndex].quantity--;
+      state.total = sumPrice(state.selectedItems);
+      state.itemsCounter = sumQuantity(state.selectedItems);
+    },
   },
 });
