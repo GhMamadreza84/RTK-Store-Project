@@ -15,10 +15,18 @@ const cartSlice = createSlice({
     addItem: (state, action) => {
       if (!state.selectedItems.find((i) => i.id === action.payload.id)) {
         state.selectedItems.push({ ...action.payload, quantity: 1 });
-        state.total = sumPrice(state.selectedItems)
-        state.itemsCounter = sumQuantity(state.selectedItems)
+        state.total = sumPrice(state.selectedItems);
+        state.itemsCounter = sumQuantity(state.selectedItems);
         state.checkout = false;
       }
+    },
+    removeItems: (state, action) => {
+      const newSelectedItems = state.selectedItems.filter(
+        (i) => i.id !== action.payload.id
+      );
+      state.selectedItems = newSelectedItems;
+      state.total = sumPrice(state.selectedItems);
+      state.itemsCounter = sumQuantity(state.selectedItems);
     },
   },
 });
