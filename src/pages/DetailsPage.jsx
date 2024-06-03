@@ -7,11 +7,13 @@ import { IoMdPricetag } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
 import Loader from "../components/Loader";
-import styles from "./DetailsPage.module.css"
+import styles from "./DetailsPage.module.css";
 
 const DetailsPage = () => {
   const { id } = useParams();
-  const productDetails = useSelector(store=>store.product);
+  const productDetails = useSelector((store) =>
+    store.product.products.find((i) => i.id === id)
+  );
   if (!productDetails) return <Loader />;
   const { image, title, description, category, price } = productDetails;
   return (
