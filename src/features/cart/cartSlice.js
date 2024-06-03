@@ -13,6 +13,7 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       if (!state.selectedItems.find((i) => i.id === action.payload.id)) {
+        state.selectedItems.push({ ...action.payload, quantity: 1 });
       }
     },
   },
