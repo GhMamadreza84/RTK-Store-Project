@@ -28,5 +28,11 @@ const cartSlice = createSlice({
       state.total = sumPrice(state.selectedItems);
       state.itemsCounter = sumQuantity(state.selectedItems);
     },
+    increase: (state, action) => {
+      const increaseIndex = state.selectedItems.findIndex((i) => {
+        i.id === action.payload.id;
+      });
+      state.selectedItems[increaseIndex].quantity++;
+    },
   },
 });
