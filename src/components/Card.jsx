@@ -6,12 +6,20 @@ import { productQuantity, shortenText } from "../helper/Helper";
 
 import styles from "./Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  addItem,
+  decrease,
+  increase,
+  removeItem,
+} from "../features/cart/cartSlice";
 const Card = ({ data }) => {
   const { id, title, image, price } = data;
+
   const dispatch = useDispatch();
-  const state = useSelector(store=>store.cart)
-  // const quantity = productQuantity(state, id);
-  const quantity = 0;
+  const state = useSelector((store) => store.cart);
+
+  const quantity = productQuantity(state, id);
+
   return (
     <div className={styles.card}>
       <img src={image} alt={title} />
@@ -23,20 +31,20 @@ const Card = ({ data }) => {
         </Link>
         <div>
           {quantity === 1 && (
-            <button onClick={() => clickHandler("REMOVE_ITEM")}>
+            <button onClick={() => dispatch(removeItem())}>
               <MdDeleteOutline />
             </button>
           )}
           {quantity > 1 && (
-            <button onClick={() => clickHandler("DECREASE")}>-</button>
+            <button onClick={() => dispatch(decrease())}>-</button>
           )}
           {!!quantity && <span>{quantity}</span>}
           {quantity === 0 ? (
-            <button onClick={() => clickHandler("ADD_ITEM")}>
+            <button onClick={() => dispatch(addItem())}>
               <TbShoppingBagCheck />
             </button>
           ) : (
-            <button onClick={() => clickHandler("INCREASE")}>+</button>
+            <button onClick={() => dispatch(increase())}>+</button>
           )}
         </div>
       </div>
