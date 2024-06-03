@@ -43,7 +43,6 @@ const sumPrice = () => {
     0
   );
 };
-
 const sumQuantity = () => {
   return products.reduce((counter, product) => counter + product.quantity, 0);
 };
