@@ -17,7 +17,6 @@ const Card = ({ data }) => {
 
   const dispatch = useDispatch();
   const state = useSelector((store) => store.cart);
- console.log(state)
   const quantity = productQuantity(state, id);
   return (
     <div className={styles.card}>
