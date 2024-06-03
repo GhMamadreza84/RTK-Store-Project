@@ -3,18 +3,15 @@ import { TbListDetails } from "react-icons/tb";
 import { TbShoppingBagCheck } from "react-icons/tb";
 import { MdDeleteOutline } from "react-icons/md";
 import { productQuantity, shortenText } from "../helper/Helper";
-// import { useCart } from "../context/CartContext";
 
 import styles from "./Card.module.css";
+import { useDispatch, useSelector } from "react-redux";
 const Card = ({ data }) => {
   const { id, title, image, price } = data;
-  // const [state, dispatch] = useCart();
+  const dispatch = useDispatch();
+  const state = useSelector(store=>store.cart)
   // const quantity = productQuantity(state, id);
-  const quantity =0;
-  console.log(quantity);
-  const clickHandler = (type) => {
-    // dispatch({ type, payload: data });
-  };
+  const quantity = 0;
   return (
     <div className={styles.card}>
       <img src={image} alt={title} />
