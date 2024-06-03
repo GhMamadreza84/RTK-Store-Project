@@ -43,9 +43,11 @@ const sumPrice = () => {
     0
   );
 };
+
 const sumQuantity = () => {
   return products.reduce((counter, product) => counter + product.quantity, 0);
 };
+
 const productQuantity = (state, id) => {
   const index = state.selectedItems.findIndex((item) => item.id === id);
   if (index === -1) {
